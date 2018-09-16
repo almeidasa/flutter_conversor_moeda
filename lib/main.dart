@@ -37,25 +37,25 @@ class _HomeState extends State<Home> {
   double bitcoin;
 
   void _realChanged(String text){
-    double real = double.parse(text);
+    double real = double.parse(text.replaceAll(',', '.'));
     dolarController.text = (real/dolar).toStringAsFixed(2);
     euroController.text = (real/euro).toStringAsFixed(2);
     bitcoinController.text = (real/bitcoin).toStringAsFixed(2);;
   }
   void _dolarChanged(String text){
-    double dolar = double.parse(text);
+    double dolar = double.parse(text.replaceAll(',', '.'));
     realController.text = (dolar * this.dolar).toStringAsFixed(2);;
     euroController.text = (dolar * this.dolar / euro).toStringAsFixed(2);
     bitcoinController.text = (dolar * this.dolar / bitcoin).toStringAsFixed(2);;
   }
   void _euroChanged(String text){
-    double euro = double.parse(text);
+    double euro = double.parse(text.replaceAll(',', '.'));
     realController.text = (euro * this.euro).toStringAsFixed(2);
     dolarController.text = (euro * this.euro / dolar).toStringAsFixed(2);
     bitcoinController.text = (euro * this.euro / bitcoin).toStringAsFixed(2);
   }
   void _bitcoinChanged(String text){
-    double bitcoin = double.parse(text);
+    double bitcoin = double.parse(text.replaceAll(',', '.'));
     realController.text = (bitcoin * this.bitcoin).toStringAsFixed(2);
     dolarController.text = (bitcoin * this.bitcoin / dolar).toStringAsFixed(2);
     euroController.text = (bitcoin * this.bitcoin / euro).toStringAsFixed(2);
